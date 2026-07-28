@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: shipment-service
+  namespace: shipops
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: shipment-service
+
+
+  template:
+
+    metadata:
+      labels:
+        app: shipment-service
+
+
+    spec:
+
+      containers:
+
+      - name: shipment-service
+
+        image: shipment-service:v3
+
+        imagePullPolicy: Never
+
+
+        ports:
+
+        - containerPort: 5000
+
+
+        env:
+
+        - name: PORT
+          value: "5000"
+
+
+        - name: DATABASE_URL
+          value: "postgresql://postgres:password@shipment-postgres:5432/shipment_db"

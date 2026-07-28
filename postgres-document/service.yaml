@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: documents-postgres
+  namespace: shipops
+
+spec:
+  clusterIP: None
+
+  selector:
+    app: documents-postgres
+
+  ports:
+    - port: 5432
+      targetPort: 5432

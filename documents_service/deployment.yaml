@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: documents-service
+  namespace: shipops
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: documents-service
+
+  template:
+    metadata:
+      labels:
+        app: documents-service
+
+    spec:
+
+      containers:
+      - name: documents-service
+
+        image: documents-service:v8
+
+        imagePullPolicy: Never
+
+        ports:
+        - containerPort: 5000
+
+        env:
+        - name: PORT
+          value: "5000"
+
+        - name: DATABASE_URL
+          value: "postgresql://postgres:password@documents-postgres:5432/shipment_db"
+
+        - name: SHIPMENT_SERVICE_URL
+          value: http://shipment-service:5000
