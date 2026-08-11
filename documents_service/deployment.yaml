@@ -22,7 +22,7 @@ spec:
       containers:
       - name: documents-service
 
-        image: documents-service:v8
+        image: documents-service:v10
 
         imagePullPolicy: Never
 
