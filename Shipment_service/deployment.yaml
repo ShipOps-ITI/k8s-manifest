@@ -26,7 +26,7 @@ spec:
 
       - name: shipment-service
 
-        image: ahmedyasser02/shipment-service:v2
+        image: ahmedyasser02/shipment-service:v3
 
         imagePullPolicy: Never
 
