@@ -22,7 +22,7 @@ spec:
       containers:
       - name: documents-service
 
-        image: documents-service:v10
+        image: ahmedyasser02/docs-service:v1   
 
         imagePullPolicy: Never
 
@@ -38,3 +38,13 @@ spec:
 
         - name: SHIPMENT_SERVICE_URL
           value: http://shipment-service:5000
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: auth-service-secret
+              key: JWT_SECRET
+        - name: REFRESH_TOKEN_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: auth-service-secret
+              key: REFRESH_TOKEN_SECRET

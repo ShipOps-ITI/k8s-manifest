@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: shipment-service
+  name: auth-service
   namespace: shipops
 
 spec:
@@ -10,49 +10,47 @@ spec:
 
   selector:
     matchLabels:
-      app: shipment-service
-
+      app: auth-service
 
   template:
-
     metadata:
       labels:
-        app: shipment-service
-
+        app: auth-service
 
     spec:
 
       containers:
 
-      - name: shipment-service
+      - name: auth-service
 
-        image: ahmedyasser02/shipment-service:v2
+        image: ahmedyasser02/auth-service:v2
 
-        imagePullPolicy: Never
-
+        imagePullPolicy: IfNotPresent
 
         ports:
-
-        - containerPort: 5000
-
+        - containerPort: 5001
 
         env:
-
         - name: PORT
-          value: "5000"
+          value: "5001"
 
+        - name: NODE_ENV
+          value: "production"
 
         - name: DATABASE_URL
-          value: "postgresql://postgres:password@shipment-postgres:5432/shipment_db"
+          valueFrom:
+            secretKeyRef:
+              name: auth-service-secret
+              key: DATABASE_URL
+
         - name: JWT_SECRET
           valueFrom:
             secretKeyRef:
               name: auth-service-secret
               key: JWT_SECRET
+
         - name: REFRESH_TOKEN_SECRET
           valueFrom:
             secretKeyRef:
               name: auth-service-secret
               key: REFRESH_TOKEN_SECRET
-        - name: CORE_SERVICE_URL
-          value: "http://core-service:5002/api/v1"

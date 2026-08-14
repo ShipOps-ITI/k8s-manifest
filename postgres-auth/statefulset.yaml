@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: StatefulSet
+
+metadata:
+  name: auth-postgres
+  namespace: shipops
+
+spec:
+  serviceName: auth-postgres
+
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: auth-postgres
+
+  template:
+    metadata:
+      labels:
+        app: auth-postgres
+
+    spec:
+
+      containers:
+
+      - name: postgres
+
+        image: postgres:16
+
+        ports:
+        - containerPort: 5432
+
+        env:
+
+        - name: POSTGRES_DB
+          value: shipops_db
+
+        - name: POSTGRES_USER
+          value: postgres
+
+        - name: POSTGRES_PASSWORD
+          value: password
+
+        volumeMounts:
+
+        - name: postgres-storage
+          mountPath: /var/lib/postgresql/data
+
+
+  volumeClaimTemplates:
+
+  - metadata:
+      name: postgres-storage
+
+    spec:
+
+      accessModes:
+      - ReadWriteOnce
+
+      resources:
+        requests:
+          storage: 2Gi
