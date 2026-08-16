@@ -23,7 +23,7 @@ spec:
 
       - name: auth-service
 
-        image: ahmedyasser02/auth-service:v2
+        image: somaya189/auth-service:v1
 
         imagePullPolicy: IfNotPresent
 
