@@ -34,7 +34,7 @@ spec:
         env:
 
         - name: POSTGRES_DB
-          value: shipment_db
+          value: documents_db
 
         - name: POSTGRES_USER
           value: postgres
