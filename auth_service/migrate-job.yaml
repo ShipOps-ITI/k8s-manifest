@@ -11,7 +11,7 @@ spec:
       containers:
       - name: migrate
         image: rehab16/auth-service:v1
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Never
         command: ["npx", "prisma", "migrate", "deploy"]
         env:
         - name: DATABASE_URL

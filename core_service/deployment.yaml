@@ -17,7 +17,7 @@ spec:
       containers:
       - name: core-service
         image: rehab16/core-service:v2
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Never
         ports:
         - containerPort: 5002
         env:
