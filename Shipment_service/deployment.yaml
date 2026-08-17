@@ -28,7 +28,7 @@ spec:
 
         image: rehab16/shipment-service:v3
 
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Never
 
 
         ports:
