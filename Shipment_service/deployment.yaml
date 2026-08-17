@@ -26,9 +26,9 @@ spec:
 
       - name: shipment-service
 
-        image: ahmedyasser02/shipment-service:v3
+        image: rehab16/shipment-service:v3
 
-        imagePullPolicy: Never
+        imagePullPolicy: IfNotPresent
 
 
         ports:

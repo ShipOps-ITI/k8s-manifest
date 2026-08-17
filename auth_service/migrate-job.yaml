@@ -10,7 +10,7 @@ spec:
       restartPolicy: OnFailure
       containers:
       - name: migrate
-        image: ahmedyasser02/auth-service:v2
+        image: rehab16/auth-service:v1
         imagePullPolicy: IfNotPresent
         command: ["npx", "prisma", "migrate", "deploy"]
         env:

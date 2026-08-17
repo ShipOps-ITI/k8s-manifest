@@ -10,7 +10,7 @@ spec:
       restartPolicy: OnFailure
       containers:
       - name: migrate
-        image: ahmedyasser02/core-service:v1
+        image: rehab16/core-service:v2
         imagePullPolicy: IfNotPresent
         command: ["npx", "prisma", "migrate", "deploy"]
         env:

@@ -23,7 +23,7 @@ spec:
 
       - name: auth-service
 
-        image: somaya189/auth-service:v1
+        image: rehab16/auth-service:v1
 
         imagePullPolicy: IfNotPresent
 

@@ -22,9 +22,9 @@ spec:
       containers:
       - name: documents-service
 
-        image: ahmedyasser02/docs-service:v1   
+        image: rehab16/docs-service:v1   
 
-        imagePullPolicy: Never
+        imagePullPolicy: IfNotPresent
 
         ports:
         - containerPort: 5000
@@ -34,7 +34,7 @@ spec:
           value: "5000"
 
         - name: DATABASE_URL
-          value: "postgresql://postgres:password@documents-postgres:5432/shipment_db"
+          value: "postgresql://postgres:password@documents-postgres:5432/documents_db"
 
         - name: SHIPMENT_SERVICE_URL
           value: http://shipment-service:5000
