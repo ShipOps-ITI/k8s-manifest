@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: ai-service
-          image: shahdmohammed077/ai-service:v11
+          image: shahdmohammed077/ai-service:v1
           imagePullPolicy: Never
           ports:
             - containerPort: 5005
