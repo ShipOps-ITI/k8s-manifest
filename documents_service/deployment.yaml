@@ -22,7 +22,7 @@ spec:
       containers:
       - name: documents-service
 
-        image: rehab16/docs-service:v1   
+        image: shahdmohammed077/docs-service:v1   
 
         imagePullPolicy: Never
 

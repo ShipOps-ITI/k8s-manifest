@@ -23,7 +23,7 @@ spec:
 
       - name: frontend
 
-        image: somaya189/frontend:v1
+        image: shahdmohammed077/frontend:v1
 
         imagePullPolicy: Never
 

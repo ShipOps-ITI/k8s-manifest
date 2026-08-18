@@ -23,7 +23,7 @@ spec:
 
       - name: auth-service
 
-        image: rehab16/auth-service:v1
+        image: shahdmohammed077/auth-service:v1
 
         imagePullPolicy: Never
 

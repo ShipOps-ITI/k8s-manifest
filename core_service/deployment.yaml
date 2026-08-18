@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: core-service
-        image: rehab16/core-service:v2
+        image: shahdmohammed077/core-service:v2
         imagePullPolicy: Never
         ports:
         - containerPort: 5002
