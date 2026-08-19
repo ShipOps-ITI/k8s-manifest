@@ -16,6 +16,7 @@ spec:
       containers:
         - name: ai-service
           image: shipops46/ai-service:v1
+
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5005
