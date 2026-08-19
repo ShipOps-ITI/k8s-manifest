@@ -62,10 +62,10 @@ spec:
 
 
     spec:
+      storageClassName: ebs-sc
 
       accessModes:
       - ReadWriteOnce
-
 
       resources:
 

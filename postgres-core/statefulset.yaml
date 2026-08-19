@@ -33,6 +33,7 @@ spec:
     - metadata:
         name: postgres-storage
       spec:
+        storageClassName: ebs-sc
         accessModes:
           - ReadWriteOnce
         resources:
