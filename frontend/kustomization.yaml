@@ -3,17 +3,6 @@ kind: Kustomization
 resources:
   - deployment.yaml
   - service.yaml
-
-configMapGenerator:
-  - name: frontend-config
-    literals:
-      - VITE_AUTH_URL=/auth
-      - VITE_CORE_URL=/api/v1
-      - VITE_CARGO_URL=/api/cargo
-      - VITE_DOCUMENT_URL=/documents
-      - VITE_SHIPMENT_URL=/api/shipments
-      - VITE_AI_URL=/api/v1/ai
-      - VITE_DASHBOARD_URL=/dashboard
-
+  - configmap-frontend.yaml
 generatorOptions:
   disableNameSuffixHash: true

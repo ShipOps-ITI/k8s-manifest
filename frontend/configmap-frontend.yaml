@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-config
+  namespace: shipops
+data:
+  VITE_AUTH_URL: "/auth"
+  VITE_CORE_URL: "/api/v1"
+  VITE_CARGO_URL: "/api/cargo"
+  VITE_DOCUMENT_URL: "/documents"
+  VITE_SHIPMENT_URL: "/api/shipments"
+  VITE_AI_URL: "/api/v1/ai"
+  VITE_DASHBOARD_URL: "/dashboard"
+  FRONTEND_ORIGIN: "https://frontend.example.com"
