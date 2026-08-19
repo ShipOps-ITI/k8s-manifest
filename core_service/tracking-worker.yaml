@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tracking-worker
+  namespace: shipops
+  labels:
+    app: tracking-worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tracking-worker
+  template:
+    metadata:
+      labels:
+        app: tracking-worker
+    spec:
+      containers:
+        - name: tracking-worker
+          # Use the same locally built Core image as the API deployment.
+          image: rehab16/core-service:v2
+          imagePullPolicy: Never
+          command: ["node", "src/modules/tracking/vesselapi.worker.js"]
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: core-service-secret
+                  key: DATABASE_URL
+            - name: VESSELAPI_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: tracking-provider-secret
+                  key: VESSELAPI_KEY
+            - name: VESSELAPI_POLL_INTERVAL_MS
+              value: "300000"
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "128Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
