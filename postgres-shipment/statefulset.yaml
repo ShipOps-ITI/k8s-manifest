@@ -46,6 +46,9 @@ spec:
         - name: POSTGRES_DB
           value: shipment_db
 
+        - name: PGDATA
+          value: /var/lib/postgresql/data/pgdata
+
 
         volumeMounts:
 
