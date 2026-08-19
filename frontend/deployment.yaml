@@ -42,8 +42,11 @@ spec:
           window._env = {
             VITE_AUTH_URL: "${VITE_AUTH_URL}",
             VITE_CORE_URL: "${VITE_CORE_URL}",
+            VITE_CARGO_URL: "${VITE_CARGO_URL}",
             VITE_DOCUMENT_URL: "${VITE_DOCUMENT_URL}",
-            VITE_SHIPMENT_URL: "${VITE_SHIPMENT_URL}"
+            VITE_SHIPMENT_URL: "${VITE_SHIPMENT_URL}",
+            VITE_AI_URL: "${VITE_AI_URL}",
+            VITE_DASHBOARD_URL: "${VITE_DASHBOARD_URL}"
           };
           EOG
           exec nginx -g 'daemon off;'
