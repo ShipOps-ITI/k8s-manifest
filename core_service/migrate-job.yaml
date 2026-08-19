@@ -10,8 +10,8 @@ spec:
       restartPolicy: OnFailure
       containers:
       - name: migrate
-        image: shahdmohammed077/core-service:v2
-        imagePullPolicy: Never
+        image: shipops46/core-service:v2
+        imagePullPolicy: IfNotPresent
         command: ["npx", "prisma", "migrate", "deploy"]
         env:
         - name: DATABASE_URL

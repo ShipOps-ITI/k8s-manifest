@@ -23,9 +23,27 @@ spec:
 
       - name: frontend
 
-        image: shahdmohammed077/frontend:v1
+        image: shipops46/frontend:v1
 
-        imagePullPolicy: Never
+        imagePullPolicy: IfNotPresent
+
+        envFrom:
+        - configMapRef:
+            name: frontend-config
 
         ports:
         - containerPort: 80
+
+        command:
+        - /bin/sh
+        - -c
+        - |
+          cat > /usr/share/nginx/html/env.js <<EOG
+          window._env = {
+            VITE_AUTH_URL: "${VITE_AUTH_URL}",
+            VITE_CORE_URL: "${VITE_CORE_URL}",
+            VITE_DOCUMENT_URL: "${VITE_DOCUMENT_URL}",
+            VITE_SHIPMENT_URL: "${VITE_SHIPMENT_URL}"
+          };
+          EOG
+          exec nginx -g 'daemon off;'

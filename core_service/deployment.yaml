@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
       - name: core-service
-        image: shahdmohammed077/core-service:v2
-        imagePullPolicy: Never
+        image: shipops46/core-service:v1
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5002
         env:

@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
         - name: ai-service
-          image: shahdmohammed077/ai-service:v1
-          imagePullPolicy: Never
+          image: shipops46/ai-service:v1
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5005
           env:
@@ -35,4 +35,4 @@ spec:
               value: "http://shipment-service:5000/api/shipments"
             # Replace this with the public origin that serves the frontend.
             - name: FRONTEND_ORIGIN
-              value: "http://localhost:5173"
+              value: "http://frontend"

@@ -23,9 +23,9 @@ spec:
 
       - name: auth-service
 
-        image: shahdmohammed077/auth-service:v1
+        image: shipops46/auth-service:v1
 
-        imagePullPolicy: Never
+        imagePullPolicy: IfNotPresent
 
         ports:
         - containerPort: 5001

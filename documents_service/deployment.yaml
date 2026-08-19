@@ -22,9 +22,9 @@ spec:
       containers:
       - name: documents-service
 
-        image: shahdmohammed077/docs-service:v1   
+        image: shipops46/docs-service:v1   
 
-        imagePullPolicy: Never
+        imagePullPolicy: IfNotPresent
 
         ports:
         - containerPort: 5000
