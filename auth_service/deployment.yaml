@@ -23,7 +23,7 @@ spec:
 
       - name: auth-service
 
-        image: shipops46/auth-service:v1
+        image: shipops46/auth-service:v2
 
         imagePullPolicy: IfNotPresent
 
