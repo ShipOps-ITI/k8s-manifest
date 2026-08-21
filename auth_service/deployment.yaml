@@ -23,9 +23,9 @@ spec:
 
       - name: auth-service
 
-        image: shipops46/auth-service:v2
+        image: 760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/auth:latest
 
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
 
         ports:
         - containerPort: 5001
