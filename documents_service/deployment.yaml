@@ -22,7 +22,7 @@ spec:
       containers:
       - name: documents-service
 
-        image: shipops46/docs-service:v1   
+        image: shipops46/docs-service:v2  
 
         imagePullPolicy: IfNotPresent
 
