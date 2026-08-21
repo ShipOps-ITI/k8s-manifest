@@ -10,8 +10,8 @@ spec:
       restartPolicy: OnFailure
       containers:
       - name: migrate
-        image: shipops46/auth-service:v1
-        imagePullPolicy: IfNotPresent
+        image: 760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/auth:latest
+        imagePullPolicy: Always
         command: ["npx", "prisma", "migrate", "deploy"]
         env:
         - name: DATABASE_URL
