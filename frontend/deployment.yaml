@@ -23,7 +23,7 @@ spec:
 
       - name: frontend
 
-        image: shipops46/frontend:v2
+        image: shipops46/frontend:v3
 
         imagePullPolicy: IfNotPresent
 
