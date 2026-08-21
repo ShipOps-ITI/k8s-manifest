@@ -36,4 +36,4 @@ spec:
               value: "http://shipment-service:5000/api/shipments"
             # Replace this with the public origin that serves the frontend.
             - name: FRONTEND_ORIGIN
-              value: "http://frontend"
+              value: "http://localhost:5173"

@@ -38,6 +38,8 @@ spec:
 
         - name: SHIPMENT_SERVICE_URL
           value: http://shipment-service:5000
+        - name: CORE_SERVICE_URL
+          value: http://core-service:5002/api/v1
         - name: JWT_SECRET
           valueFrom:
             secretKeyRef:
@@ -48,3 +50,10 @@ spec:
             secretKeyRef:
               name: auth-service-secret
               key: REFRESH_TOKEN_SECRET
+        volumeMounts:
+        - name: document-uploads
+          mountPath: /app/uploads
+      volumes:
+      - name: document-uploads
+        persistentVolumeClaim:
+          claimName: documents-uploads
