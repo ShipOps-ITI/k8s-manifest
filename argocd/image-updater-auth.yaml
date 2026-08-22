@@ -6,4 +6,4 @@ metadata:
 spec:
   applicationRefs:
     - namePattern: "auth-service"
-  useAnnotations: true
+      useAnnotations: true
