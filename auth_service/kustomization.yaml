@@ -8,4 +8,4 @@ resources:
   - secret.yaml
 images:
   - name: 760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/auth
-    newTag: c7e2e9a46f7a4536f94100c98eeb9983b358bb09
+    newTag: 24b38f6ca34f9069c732bb79434a9a8e1d218b51
