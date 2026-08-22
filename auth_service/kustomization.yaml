@@ -1,14 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 namespace: shipops
-
 resources:
   - deployment.yaml
   - service.yaml
   - migrate-job.yaml
   - secret.yaml
-
 images:
   - name: 760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/auth
-    newTag: latest
+    newTag: c7e2e9a46f7a4536f94100c98eeb9983b358bb09
