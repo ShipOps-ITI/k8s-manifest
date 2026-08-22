@@ -37,6 +37,13 @@ spec:
             name: shipment-service
             port:
               number: 5000
+      - path: /api/v1/ai
+        pathType: Prefix
+        backend:
+          service:
+            name: ai-service
+            port:
+              number: 5005
       - path: /auth
         pathType: Prefix
         backend:
