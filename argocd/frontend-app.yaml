@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: frontend
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: frontend=760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/frontend
+    argocd-image-updater.argoproj.io/frontend.update-strategy: newest-build
+    argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
+    argocd-image-updater.argoproj.io/write-back-target: kustomization
+    argocd-image-updater.argoproj.io/frontend.pull-secret: pullsecret:argocd/ecr-credentials
+
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/ShipOps-ITI/k8s-manifest.git
+    targetRevision: main
+    path: frontend
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: shipops
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
