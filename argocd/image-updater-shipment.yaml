@@ -1,0 +1,9 @@
+apiVersion: argocd-image-updater.argoproj.io/v1alpha1
+kind: ImageUpdater
+metadata:
+  name: shipment-service-updater
+  namespace: argocd
+spec:
+  applicationRefs:
+    - namePattern: "shipment-service"
+      useAnnotations: true
