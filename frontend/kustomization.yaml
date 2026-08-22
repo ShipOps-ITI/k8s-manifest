@@ -1,16 +1,12 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 namespace: shipops
-
 resources:
   - deployment.yaml
   - service.yaml
   - configmap-frontend.yaml
-
 generatorOptions:
   disableNameSuffixHash: true
-
 images:
   - name: 760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/frontend
-    newTag: latest
+    newTag: fddb87df56dbc28fe25958fe550c3653b7e6b6c1
