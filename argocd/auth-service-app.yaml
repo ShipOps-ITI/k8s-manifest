@@ -3,14 +3,20 @@ kind: Application
 metadata:
   name: auth-service
   namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: auth=760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/auth
+    argocd-image-updater.argoproj.io/auth.update-strategy: newest-build
+    argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
+    argocd-image-updater.argoproj.io/write-back-target: kustomization
+    argocd-image-updater.argoproj.io/auth.pull-secret: pullsecret:argocd/ecr-credentials
 
 spec:
   project: default
 
   source:
-    repoURL: https://github.com/ShipOps-ITI/auth-service.git
+    repoURL: https://github.com/ShipOps-ITI/k8s-manifest.git
     targetRevision: main
-    path: k8s                
+    path: auth_service
 
   destination:
     server: https://kubernetes.default.svc
