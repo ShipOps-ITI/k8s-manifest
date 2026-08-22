@@ -26,9 +26,9 @@ spec:
 
       - name: shipment-service
 
-        image: shipops46/shipment-service:v1
+        image: 760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/shipment:latest
 
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
 
 
         ports:
@@ -43,7 +43,10 @@ spec:
 
 
         - name: DATABASE_URL
-          value: "postgresql://postgres:password@shipment-postgres:5432/shipment_db"
+          valueFrom:
+            secretKeyRef:
+              name: shipment-service-secret
+              key: DATABASE_URL
         - name: JWT_SECRET
           valueFrom:
             secretKeyRef:
