@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
       - name: core-service
-        image: shipops46/core-service:v2
-        imagePullPolicy: IfNotPresent
+        image: 760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/core:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 5002
         env:

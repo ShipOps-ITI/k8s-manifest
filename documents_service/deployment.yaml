@@ -22,7 +22,7 @@ spec:
       containers:
       - name: documents-service
 
-        image: shipops46/docs-service:v3
+        image: 760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/documents:latest
 
         imagePullPolicy: IfNotPresent
 

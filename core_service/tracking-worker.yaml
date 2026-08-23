@@ -18,7 +18,7 @@ spec:
       containers:
         - name: tracking-worker
           # Use the same locally built Core image as the API deployment.
-          image: shipops46/core-service:v2
+          image: 760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/core:latest
           imagePullPolicy: IfNotPresent
           command: ["node", "src/modules/tracking/vesselapi.worker.js"]
           env:
