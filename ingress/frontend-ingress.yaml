@@ -13,8 +13,7 @@ metadata:
     alb.ingress.kubernetes.io/healthcheck-port: traffic-port
 spec:
   rules:
-  - host: frontend.example.com
-    http:
+  - http:
       paths:
       - path: /api
         pathType: Prefix

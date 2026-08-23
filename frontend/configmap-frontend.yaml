@@ -11,4 +11,4 @@ data:
   VITE_SHIPMENT_URL: "/api/shipments"
   VITE_AI_URL: "/api/v1/ai"
   VITE_DASHBOARD_URL: "/dashboard"
-  FRONTEND_ORIGIN: "https://frontend.example.com"
+  FRONTEND_ORIGIN: "http://k8s-shipops-frontend-a1a923278d-1330084971.us-east-1.elb.amazonaws.com"
