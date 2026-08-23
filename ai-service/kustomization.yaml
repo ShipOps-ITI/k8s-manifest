@@ -5,4 +5,4 @@ resources:
   - service.yaml
 images:
   - name: 760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/ai
-    newTag: latest
+    newTag: 82f1209300526ca64341578fb7032ca1aa82d4be
