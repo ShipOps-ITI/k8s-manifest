@@ -8,4 +8,4 @@ resources:
   - paymob-config.yaml
 images:
   - name: 760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/auth
-    newTag: 117e4572dea50e5f792af80a092c306b2c1760d1
+    newTag: 37bda9194f8c01209edbff6e6262551a03f19146
