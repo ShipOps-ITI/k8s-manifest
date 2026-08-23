@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: ai-service
-          image: shipops46/ai-service:v1
+          image: 760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/ai:latest
 
           imagePullPolicy: IfNotPresent
           ports:
@@ -36,4 +36,4 @@ spec:
               value: "http://shipment-service:5000/api/shipments"
             # Replace this with the public origin that serves the frontend.
             - name: FRONTEND_ORIGIN
-              value: "http://localhost:5173"
+              value: "http://k8s-shipops-frontend-a1a923278d-1330084971.us-east-1.elb.amazonaws.com"
