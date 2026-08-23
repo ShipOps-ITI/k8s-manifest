@@ -26,9 +26,9 @@ spec:
 
       - name: shipment-service
 
-        image: 760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/shipment:latest
+        image: shipops46/shipment-service:v1
 
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
 
 
         ports:

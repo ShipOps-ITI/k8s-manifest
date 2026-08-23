@@ -23,9 +23,9 @@ spec:
 
       - name: auth-service
 
-        image: 760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/auth:latest
+        image: shipops46/auth-service:v4
 
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
 
         ports:
         - containerPort: 5001
@@ -37,7 +37,6 @@ spec:
         - name: NODE_ENV
           value: "production"
 
-        # --- secrets ---
         - name: DATABASE_URL
           valueFrom:
             secretKeyRef:
@@ -50,81 +49,68 @@ spec:
               name: auth-service-secret
               key: JWT_SECRET
 
-        - name: JWT_EXPIRES_IN
-          valueFrom:
-            secretKeyRef:
-              name: auth-service-secret
-              key: JWT_EXPIRES_IN
-
         - name: REFRESH_TOKEN_SECRET
           valueFrom:
             secretKeyRef:
               name: auth-service-secret
               key: REFRESH_TOKEN_SECRET
-
         - name: FRONTEND_ORIGIN
-          valueFrom:
-            secretKeyRef:
-              name: auth-service-secret
-              key: FRONTEND_ORIGIN
-
+          value: "http://localhost:5173"
+        - name: FRONTEND_URL
+          value: "http://localhost:5173"
+        - name: PAYMOB_BASE_URL
+          value: "https://accept.paymob.com"
+        - name: PAYMOB_CURRENCY
+          value: "EGP"
+        - name: PAYMOB_PREMIUM_AMOUNT_CENTS
+          value: "10000"
+        - name: PAYMOB_REDIRECTION_URL
+          value: "http://localhost:5173/payment/success"
         - name: PAYMOB_API_KEY
           valueFrom:
             secretKeyRef:
-              name: auth-service-secret
+              name: auth-payment-secret
               key: PAYMOB_API_KEY
-
+              optional: true
         - name: PAYMOB_SECRET_KEY
           valueFrom:
             secretKeyRef:
-              name: auth-service-secret
+              name: auth-payment-secret
               key: PAYMOB_SECRET_KEY
-
+              optional: true
         - name: PAYMOB_PUBLIC_KEY
           valueFrom:
             secretKeyRef:
-              name: auth-service-secret
+              name: auth-payment-secret
               key: PAYMOB_PUBLIC_KEY
-
-        # --- paymob config (non-sensitive) ---
-        - name: PAYMOB_BASE_URL
-          valueFrom:
-            configMapKeyRef:
-              name: paymob-config
-              key: PAYMOB_BASE_URL
-
+              optional: true
         - name: PAYMOB_3DS_INTEGRATION_ID
           valueFrom:
-            configMapKeyRef:
-              name: paymob-config
+            secretKeyRef:
+              name: auth-payment-secret
               key: PAYMOB_3DS_INTEGRATION_ID
-
+              optional: true
         - name: PAYMOB_MOTO_INTEGRATION_ID
           valueFrom:
-            configMapKeyRef:
-              name: paymob-config
+            secretKeyRef:
+              name: auth-payment-secret
               key: PAYMOB_MOTO_INTEGRATION_ID
-
-        - name: PAYMOB_CURRENCY
-          valueFrom:
-            configMapKeyRef:
-              name: paymob-config
-              key: PAYMOB_CURRENCY
-
-        - name: PAYMOB_PREMIUM_AMOUNT_CENTS
-          valueFrom:
-            configMapKeyRef:
-              name: paymob-config
-              key: PAYMOB_PREMIUM_AMOUNT_CENTS
-
+              optional: true
         - name: PAYMOB_WEBHOOK_URL
           valueFrom:
-            configMapKeyRef:
-              name: paymob-config
+            secretKeyRef:
+              name: auth-payment-secret
               key: PAYMOB_WEBHOOK_URL
-
-        - name: PAYMOB_REDIRECTION_URL
+              optional: true
+        - name: PAYMOB_WEBHOOK_TOKEN
           valueFrom:
-            configMapKeyRef:
-              name: paymob-config
-              key: PAYMOB_REDIRECTION_URL
+            secretKeyRef:
+              name: auth-payment-secret
+              key: PAYMOB_WEBHOOK_TOKEN
+              optional: true
+        - name: PAYMOB_YEARLY_PLAN_ID
+          valueFrom:
+            secretKeyRef:
+              name: auth-payment-secret
+              key: PAYMOB_YEARLY_PLAN_ID
+              optional: true

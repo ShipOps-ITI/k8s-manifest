@@ -23,8 +23,9 @@ spec:
 
       - name: frontend
 
-        image: 760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/frontend:latest
-        imagePullPolicy: Always
+        image: shipops46/frontend:v8
+
+        imagePullPolicy: IfNotPresent
 
         envFrom:
         - configMapRef:
