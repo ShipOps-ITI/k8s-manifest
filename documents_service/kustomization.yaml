@@ -4,3 +4,7 @@ resources:
   - deployment.yaml
   - service.yaml
   - uploads-pvc.yaml
+
+images:
+  - name: 760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/documents
+    newTag: latest
