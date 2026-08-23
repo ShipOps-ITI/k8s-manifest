@@ -3,3 +3,8 @@ kind: Kustomization
 resources:
   - deployment.yaml
   - service.yaml
+  - tracking-worker.yaml
+
+images:
+  - name: 760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/core
+    newTag: latest
