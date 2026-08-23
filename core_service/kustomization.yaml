@@ -8,4 +8,4 @@ resources:
   - tracking-worker.yaml
 images:
   - name: 760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/core
-    newTag: latest
+    newTag: 695da3fc55ef1da0890415e26401fd5105945494
