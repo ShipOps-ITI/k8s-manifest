@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: ai-service
-          image: shipops46/ai-service:v2
+          image: 760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/ai:latest
 
           imagePullPolicy: IfNotPresent
           ports:
