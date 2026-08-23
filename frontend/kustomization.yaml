@@ -9,4 +9,4 @@ generatorOptions:
   disableNameSuffixHash: true
 images:
   - name: 760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/frontend
-    newTag: 16d996b1b78f9c53d43df1f11fa2941be88812a1
+    newTag: latest
