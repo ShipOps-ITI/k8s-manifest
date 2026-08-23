@@ -18,7 +18,7 @@ spec:
       containers:
         - name: tracking-worker
           # Use the same locally built Core image as the API deployment.
-          image: 760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/core:latest
+          image: shipops46/core-service:v2
           imagePullPolicy: IfNotPresent
           command: ["node", "src/modules/tracking/vesselapi.worker.js"]
           env:
@@ -34,6 +34,8 @@ spec:
                   key: VESSELAPI_KEY
             - name: VESSELAPI_POLL_INTERVAL_MS
               value: "300000"
+            - name: VESSELAPI_QUOTA_COOLDOWN_MS
+              value: "86400000"
           resources:
             requests:
               cpu: "50m"

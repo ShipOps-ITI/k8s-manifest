@@ -1,1 +1,2 @@
 ai-service/secret.yaml
+auth_service/payment-secret.local.yaml
