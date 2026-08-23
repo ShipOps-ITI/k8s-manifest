@@ -3,7 +3,6 @@ kind: Kustomization
 resources:
   - deployment.yaml
   - service.yaml
-
 images:
   - name: 760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/ai
-    newTag: latest
+    newTag: d23f7a9cab541347fa73060cc763737a39b1564e
