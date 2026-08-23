@@ -6,6 +6,7 @@ resources:
   - service.yaml
   - migrate-job.yaml
   - secret.yaml
+  - paymob-config.yaml
 images:
   - name: 760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/auth
     newTag: latest

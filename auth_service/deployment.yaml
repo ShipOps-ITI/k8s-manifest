@@ -37,6 +37,7 @@ spec:
         - name: NODE_ENV
           value: "production"
 
+        # --- secrets ---
         - name: DATABASE_URL
           valueFrom:
             secretKeyRef:
@@ -49,10 +50,81 @@ spec:
               name: auth-service-secret
               key: JWT_SECRET
 
+        - name: JWT_EXPIRES_IN
+          valueFrom:
+            secretKeyRef:
+              name: auth-service-secret
+              key: JWT_EXPIRES_IN
+
         - name: REFRESH_TOKEN_SECRET
           valueFrom:
             secretKeyRef:
               name: auth-service-secret
               key: REFRESH_TOKEN_SECRET
+
         - name: FRONTEND_ORIGIN
-          value: "https://frontend.example.com"
+          valueFrom:
+            secretKeyRef:
+              name: auth-service-secret
+              key: FRONTEND_ORIGIN
+
+        - name: PAYMOB_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: auth-service-secret
+              key: PAYMOB_API_KEY
+
+        - name: PAYMOB_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: auth-service-secret
+              key: PAYMOB_SECRET_KEY
+
+        - name: PAYMOB_PUBLIC_KEY
+          valueFrom:
+            secretKeyRef:
+              name: auth-service-secret
+              key: PAYMOB_PUBLIC_KEY
+
+        # --- paymob config (non-sensitive) ---
+        - name: PAYMOB_BASE_URL
+          valueFrom:
+            configMapKeyRef:
+              name: paymob-config
+              key: PAYMOB_BASE_URL
+
+        - name: PAYMOB_3DS_INTEGRATION_ID
+          valueFrom:
+            configMapKeyRef:
+              name: paymob-config
+              key: PAYMOB_3DS_INTEGRATION_ID
+
+        - name: PAYMOB_MOTO_INTEGRATION_ID
+          valueFrom:
+            configMapKeyRef:
+              name: paymob-config
+              key: PAYMOB_MOTO_INTEGRATION_ID
+
+        - name: PAYMOB_CURRENCY
+          valueFrom:
+            configMapKeyRef:
+              name: paymob-config
+              key: PAYMOB_CURRENCY
+
+        - name: PAYMOB_PREMIUM_AMOUNT_CENTS
+          valueFrom:
+            configMapKeyRef:
+              name: paymob-config
+              key: PAYMOB_PREMIUM_AMOUNT_CENTS
+
+        - name: PAYMOB_WEBHOOK_URL
+          valueFrom:
+            configMapKeyRef:
+              name: paymob-config
+              key: PAYMOB_WEBHOOK_URL
+
+        - name: PAYMOB_REDIRECTION_URL
+          valueFrom:
+            configMapKeyRef:
+              name: paymob-config
+              key: PAYMOB_REDIRECTION_URL
