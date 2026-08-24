@@ -26,7 +26,7 @@ spec:
 
       - name: shipment-service
 
-        image: shipops46/shipment-service:v1
+        image: 760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/shipment:latest
 
         imagePullPolicy: IfNotPresent
 
