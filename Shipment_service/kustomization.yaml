@@ -1,13 +1,10 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 namespace: shipops
-
 resources:
   - deployment.yaml
   - service.yaml
   - secret.yaml
-
 images:
   - name: 760402325804.dkr.ecr.us-east-1.amazonaws.com/shipops/shipment
-    newTag: latest
+    newTag: 66458edf07f0cbd7db405442883f9d33c86222ae
